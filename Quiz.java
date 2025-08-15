@@ -6,6 +6,7 @@ public class Quiz {
     public static void main(String[] args) {
         List<Question> questions = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
+        int score = 0;
 questions.add(new Question(
     "Which language is used for Android app development?",
     new String[]{"Java", "Python", "C++", "Swift"},
@@ -44,9 +45,11 @@ questions.add(new Question(
             int userAnswer = sc.nextInt() - 1;
             if (question.isCorrect(userAnswer)) {
                 System.out.println("Correct!");
+                score++;
             } else {
                 System.out.println("Wrong! The correct answer is: " + question.getOptions()[question.getAnswer()]);
             }
         }
+        System.out.println("Your total score is: " + score + "/" + questions.size());
     }
 }
